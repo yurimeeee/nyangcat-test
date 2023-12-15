@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import catImg from "../asset/cat.png";
 import kakaoIcon from "../asset/kakao.png";
 import "animate.css"; // animate.css를 import
+import KakaoShareButton from "../components/shareButton";
 
 const Home = () => {
   return (
@@ -23,7 +24,9 @@ const Home = () => {
         <Link to="/" className="btn share-btn">
           <img src={kakaoIcon} alt="카카오톡" />
           카카오톡 공유하기
+          {KakaoShareButton}
         </Link>
+        {/* {KakaoShareButton} */}
       </div>
     </div>
   );

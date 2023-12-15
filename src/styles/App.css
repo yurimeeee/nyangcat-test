@@ -196,3 +196,63 @@ body {
 .answer-btns {
   margin: 0 auto;
 }
+
+/* result */
+.result {
+  padding: 66px 0 36px;
+}
+
+.overflow {
+  width: 100%;
+  height: 354px;
+  overflow: scroll;
+}
+.result-wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.result h2 {
+  color: #f8ab52;
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.mbti {
+  width: 90%;
+  border-radius: 20px;
+  border: 2px solid #ffda72;
+  background: #fffaee;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+.mbti h3 {
+  color: #4c3d3d;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.mbti h3 strong {
+  font-weight: 700;
+}
+
+.mbti img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.result-desc {
+  width: 90%;
+  border-radius: 20px;
+  border: 2px solid #fbc348;
+  padding: 24px;
+  line-height: 1.3;
+}
