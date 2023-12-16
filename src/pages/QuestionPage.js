@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { QnaList } from "../data/QnaList";
+import "animate.css";
 
 const QuestionPage = ({ onResultChange }) => {
   const [qidx, setQidx] = useState(0);
@@ -10,6 +11,7 @@ const QuestionPage = ({ onResultChange }) => {
   const [result, setResult] = useState("");
   const [hasResult, setHasResult] = useState(false);
   const navigate = useNavigate();
+  const [key, setKey] = useState(0); // key 상태 추가
 
   const qAmt = QnaList.length;
 
@@ -45,6 +47,7 @@ const QuestionPage = ({ onResultChange }) => {
     console.log(countArr, "countArr");
     //다음 문제로 이동
     goNext();
+    setKey((prevKey) => prevKey + 1); // key 상태를 변경하여 다시 렌더링
   };
 
   let str1 = "";
@@ -65,7 +68,7 @@ const QuestionPage = ({ onResultChange }) => {
   };
 
   return (
-    <div>
+    <div key={key} className="test">
       <div className="test-testing">
         {!hasResult ? (
           <>
@@ -80,19 +83,21 @@ const QuestionPage = ({ onResultChange }) => {
                 {qidx + 1} / {qAmt}
               </div>
             </div>
-            <h2 className="q-number">Q{qidx + 1}</h2>
-            <p className="question">{QnaList[qidx].q}</p>
-            <div className="answer-btns">
-              {QnaList[qidx].a.map((answerText, idx) => (
-                <button
-                  key={idx}
-                  className="answer btn"
-                  value={answerText.value}
-                  onClick={() => addAnswer(answerText.value)}
-                >
-                  {answerText.answer}
-                </button>
-              ))}
+            <div className="animate__animated animate__fadeIn animate__slow-1s">
+              <h2 className="q-number">Q{qidx + 1}</h2>
+              <p className="question">{QnaList[qidx].q}</p>
+              <div className="answer-btns">
+                {QnaList[qidx].a.map((answerText, idx) => (
+                  <button
+                    key={idx}
+                    className="answer btn"
+                    value={answerText.value}
+                    onClick={() => addAnswer(answerText.value)}
+                  >
+                    {answerText.answer}
+                  </button>
+                ))}
+              </div>
             </div>
           </>
         ) : (

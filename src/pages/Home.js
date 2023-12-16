@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import catImg from "../asset/cat.png";
 import kakaoIcon from "../asset/kakao.png";
-import "animate.css"; // animate.css를 import
+import "animate.css";
 import KakaoShareButton from "../components/shareButton";
 import BubbleCat from "../components/BubbleCat";
 

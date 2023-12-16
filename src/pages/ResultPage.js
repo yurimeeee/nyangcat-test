@@ -1,16 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, redirect } from "react-router-dom";
 import kakaoIcon from "../asset/kakao.png";
 import { ResultList } from "../data/result_data";
+import { useNavigate } from "react-router-dom";
 
 const ResultPage = ({ finalResult }) => {
-  // const [best, setBest] = useState([]);
-  // const [worst, setWorst] = useState([]);
+  const navigate = useNavigate();
+
+  // const storageKey = "resultData"; // 로컬 스토리지에 저장될 키
+
+  // // 로컬 스토리지에서 데이터 가져오기
+  // const storedData = JSON.parse(localStorage.getItem(storageKey)) || {};
+
+  // // finalResult가 존재하면 새로운 데이터 저장
+  // if (finalResult) {
+  //   storedData[finalResult] = ResultList.filter(
+  //     (result) => finalResult in result
+  //   )[0][finalResult];
+
+  //   // 로컬 스토리지에 데이터 저장
+  //   localStorage.setItem(storageKey, JSON.stringify(storedData));
+  // } else {
+  //   const results = storedData[finalResult] || {};
+  // }
 
   console.log(finalResult, "finalResult");
   console.log(ResultList, "ResultList");
 
-  console.log("tupe", typeof finalResult);
   const results = ResultList.filter((result) => finalResult in result)[0][
     finalResult
   ];
@@ -41,20 +57,22 @@ const ResultPage = ({ finalResult }) => {
   });
 
   useEffect(() => {
-    // console.log(results, "results");
-    // let bestMbti = results.Best;
-    // const bestArr = ResultList.filter((result) => bestMbti in result)[0][
-    //   bestMbti
-    // ];
-    // console.log(bestMbti, "bestMbti");
-    // // setBest(...bestArr);
-    // console.log(bestArr, "bestArr");
+    // useEffect 안에서 페이지 리로드 시 리다이렉션을 수행
+    const handlePageReload = () => {
+      console.log("리로드 시 리다이렉션 작업 수행 중");
+      // navigate("/"); // "/" 경로로 리다이렉트
 
-    // 컴포넌트가 언마운트될 때 클리어하는 등의 작업을 하고 싶다면
-    return () => {
-      console.log("컴포넌트가 언마운트될 때 수행됩니다.");
+      // return redirect("/");
+      window.location.reload("/");
     };
-  }, []);
+
+    window.addEventListener("beforeunload", handlePageReload);
+
+    return () => {
+      // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+      window.removeEventListener("beforeunload", handlePageReload);
+    };
+  }, [navigate]);
 
   return (
     <div className="result">
@@ -66,6 +84,7 @@ const ResultPage = ({ finalResult }) => {
             <strong> {results.Name}</strong>
           </h3>
           <img src={results.Img} alt={results.Name} />
+          <h4>" {results.say} "</h4>
         </div>
         <div className="overflow">
           <div className="result-desc">
@@ -108,9 +127,6 @@ const ResultPage = ({ finalResult }) => {
               {" "}
               테스트 다시하기
             </Link>
-            {/* <a href="" className="btn start-btn">
-              테스트 다시하기
-            </a> */}
             <Link to="/" className="btn share-btn">
               <img src={kakaoIcon} alt="카카오톡" />
               친구에게 공유하기
