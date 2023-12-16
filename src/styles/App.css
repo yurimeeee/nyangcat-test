@@ -429,7 +429,7 @@ body {
   }
   .home,
   .test {
-    height: 100vh;
+    height: calc(100vh - 50px);
     width: 100vw;
   }
 
@@ -462,7 +462,7 @@ body {
   }
   .question {
     height: 230px;
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .chemistry img {
@@ -485,6 +485,13 @@ body {
   .mbti {
     padding: 30px 0;
     gap: 28px;
+  }
+  .answer-btns {
+    width: 90%;
+  }
+
+  .btn.answer {
+    font-size: 16px;
   }
 
   /* 추가적인 모바일 전용 스타일 */
