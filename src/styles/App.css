@@ -415,3 +415,51 @@ body {
   transition: opacity 1s ease, transform 1s ease;
   /* transition: top 1s ease, left 1s ease, transform 1s ease; */
 }
+
+/* 모바일 미디어 쿼리 */
+@media (max-width: 479px) {
+  .App {
+    width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .home,
+  .test {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .title-wrap {
+    gap: 18px;
+  }
+
+  .title-wrap h1 {
+    font-size: 40px;
+  }
+
+  .title-wrap h2 {
+    font-size: 28px;
+  }
+
+  .home-img {
+    position: absolute;
+    /* width: 228px;
+    height: 193px; */
+    width: 167px;
+    height: 140px;
+    top: -124px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .random-container {
+    width: 250px;
+    height: 190px;
+  }
+  .question {
+    height: 230px;
+    font-size: 28px;
+  }
+
+  /* 추가적인 모바일 전용 스타일 */
+}

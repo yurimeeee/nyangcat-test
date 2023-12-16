@@ -24,9 +24,9 @@ const ResultPage = ({ finalResult }) => {
   //   const results = storedData[finalResult] || {};
   // }
 
-  console.log(finalResult, "finalResult");
-  console.log(ResultList, "ResultList");
-  console.log(process.env.PUBLIC_URL, "process.env.PUBLIC_URL");
+  // console.log(finalResult, "finalResult");
+  // console.log(ResultList, "ResultList");
+
   const results = ResultList.filter((result) => finalResult in result)[0][
     finalResult
   ];
@@ -56,23 +56,23 @@ const ResultPage = ({ finalResult }) => {
     return null;
   });
 
-  useEffect(() => {
-    // useEffect 안에서 페이지 리로드 시 리다이렉션을 수행
-    const handlePageReload = () => {
-      console.log("리로드 시 리다이렉션 작업 수행 중");
-      // navigate("/"); // "/" 경로로 리다이렉트
+  // useEffect(() => {
+  //   // useEffect 안에서 페이지 리로드 시 리다이렉션을 수행
+  //   const handlePageReload = () => {
+  //     console.log("리로드 시 리다이렉션 작업 수행 중");
+  //     // navigate("/"); // "/" 경로로 리다이렉트
 
-      // return redirect("/");
-      window.location.reload("/");
-    };
+  //     // return redirect("/");
+  //     window.location.reload("/");
+  //   };
 
-    window.addEventListener("beforeunload", handlePageReload);
+  //   window.addEventListener("beforeunload", handlePageReload);
 
-    return () => {
-      // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
-      window.removeEventListener("beforeunload", handlePageReload);
-    };
-  }, [navigate]);
+  //   return () => {
+  //     // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+  //     window.removeEventListener("beforeunload", handlePageReload);
+  //   };
+  // }, [navigate]);
 
   return (
     <div className="result">
