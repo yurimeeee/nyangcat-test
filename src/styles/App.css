@@ -203,11 +203,25 @@ body {
 }
 
 .overflow {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
   height: 354px;
   overflow: scroll;
 }
+/* WebKit 기반 브라우저에서 스크롤바를 숨김 */
+.overflow::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.overflow::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
 .result-wrap {
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -222,7 +236,7 @@ body {
 }
 
 .mbti {
-  width: 90%;
+  width: 100%;
   border-radius: 20px;
   border: 2px solid #ffda72;
   background: #fffaee;
@@ -250,9 +264,84 @@ body {
 }
 
 .result-desc {
-  width: 90%;
   border-radius: 20px;
   border: 2px solid #fbc348;
   padding: 24px;
   line-height: 1.3;
+}
+
+.tags-wrap h4 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tags > p {
+  background: #ecf7fb;
+  padding: 10px 16px;
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.tags > p:hover {
+  background: #d6edf6;
+}
+
+.chemistry {
+  display: flex;
+  gap: 20px;
+}
+
+.chemistry > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  border-radius: 20px;
+  padding: 20px 0;
+}
+
+.mbti-wrap {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 16px;
+}
+
+.mbti-wrap > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.best {
+  background: #f8d8c1;
+}
+
+.worst {
+  background: #c7d7fb;
+}
+
+.mbti-wrap p {
+  color: #6d6d6d;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.chemistry img {
+  width: 70px;
+  height: 70px;
+}
+
+.result-wrap .btn-wrap {
+  width: 100%;
 }
