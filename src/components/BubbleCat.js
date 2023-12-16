@@ -2,22 +2,22 @@ import React, { useEffect, useRef, useState } from "react";
 
 const BubbleCat = () => {
   const catImages = [
-    "/asset/random/cat_1.png",
-    "/asset/random/cat_2.png",
-    "/asset/random/cat_3.png",
-    "/asset/random/cat_4.png",
-    "/asset/random/cat_5.png",
-    "/asset/random/cat_6.png",
+    "./asset/random/cat_1.png",
+    "./asset/random/cat_2.png",
+    "./asset/random/cat_3.png",
+    "./asset/random/cat_4.png",
+    "./asset/random/cat_5.png",
+    "./asset/random/cat_6.png",
     "/asset/random/cat_7.png",
     "/asset/random/cat_8.png",
     "/asset/random/cat_9.png",
-    "/asset/random/cat_10.png",
-    "/asset/random/cat_11.png",
-    "/asset/random/cat_12.png",
-    "/asset/random/cat_13.png",
-    "/asset/random/cat_14.png",
-    "/asset/random/cat_15.png",
-    "/asset/random/cat_16.png",
+    "./asset/random/cat_10.png",
+    "./asset/random/cat_11.png",
+    "./asset/random/cat_12.png",
+    "./asset/random/cat_13.png",
+    "./asset/random/cat_14.png",
+    "./asset/random/cat_15.png",
+    "./asset/random/cat_16.png",
   ];
 
   const catImageRef = useRef(null);
@@ -58,7 +58,7 @@ const BubbleCat = () => {
   return (
     <div className="random-container">
       <img
-        src={process.env.PUBLIC_URL + catImages[currentImageIndex]}
+        src={catImages[currentImageIndex]}
         alt="어떤 고양이"
         id="catImage"
         ref={catImageRef}

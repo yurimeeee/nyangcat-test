@@ -83,7 +83,7 @@ const ResultPage = ({ finalResult }) => {
             {results.Feature}
             <strong> {results.Name}</strong>
           </h3>
-          <img src={process.env.PUBLIC_URL + results.Img} alt={results.Name} />
+          <img src={results.Img} alt={results.Name} />
           <h4>" {results.say} "</h4>
         </div>
         <div className="overflow">
@@ -104,10 +104,7 @@ const ResultPage = ({ finalResult }) => {
               <div className="mbti-wrap">
                 {bestMbti.map((item, index) => (
                   <div key={index}>
-                    <img
-                      src={process.env.PUBLIC_URL + item.Img}
-                      alt={item.Name}
-                    />
+                    <img src={item.Img} alt={item.Name} />
                     <p>{item.Name}</p>
                   </div>
                 ))}
@@ -118,10 +115,7 @@ const ResultPage = ({ finalResult }) => {
               <div className="mbti-wrap">
                 {worstMbti.map((item, index) => (
                   <div key={index}>
-                    <img
-                      src={process.env.PUBLIC_URL + item.Img}
-                      alt={item.Name}
-                    />
+                    <img src={item.Img} alt={item.Name} />
                     <p>{item.Name}</p>
                   </div>
                 ))}
