@@ -405,7 +405,7 @@ body {
   align-items: center;
   width: 265px;
   height: 200px;
-  background: url(/public/asset/bubble.png) no-repeat center/cover;
+  background: url(../asset/bubble.png) no-repeat center/cover;
   padding-bottom: 30px;
 }
 
