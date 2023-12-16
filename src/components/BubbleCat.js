@@ -58,7 +58,7 @@ const BubbleCat = () => {
   return (
     <div className="random-container">
       <img
-        src={catImages[currentImageIndex]}
+        src={process.env.PUBLIC_URL + catImages[currentImageIndex]}
         alt="어떤 고양이"
         id="catImage"
         ref={catImageRef}

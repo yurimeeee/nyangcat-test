@@ -104,7 +104,10 @@ const ResultPage = ({ finalResult }) => {
               <div className="mbti-wrap">
                 {bestMbti.map((item, index) => (
                   <div key={index}>
-                    <img src={item.Img} alt={item.Name} />
+                    <img
+                      src={process.env.PUBLIC_URL + item.Img}
+                      alt={item.Name}
+                    />
                     <p>{item.Name}</p>
                   </div>
                 ))}
@@ -115,7 +118,10 @@ const ResultPage = ({ finalResult }) => {
               <div className="mbti-wrap">
                 {worstMbti.map((item, index) => (
                   <div key={index}>
-                    <img src={item.Img} alt={item.Name} />
+                    <img
+                      src={process.env.PUBLIC_URL + item.Img}
+                      alt={item.Name}
+                    />
                     <p>{item.Name}</p>
                   </div>
                 ))}
