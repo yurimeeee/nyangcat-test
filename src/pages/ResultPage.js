@@ -26,7 +26,7 @@ const ResultPage = ({ finalResult }) => {
 
   console.log(finalResult, "finalResult");
   console.log(ResultList, "ResultList");
-
+  console.log(process.env.PUBLIC_URL, "process.env.PUBLIC_URL");
   const results = ResultList.filter((result) => finalResult in result)[0][
     finalResult
   ];
@@ -83,7 +83,7 @@ const ResultPage = ({ finalResult }) => {
             {results.Feature}
             <strong> {results.Name}</strong>
           </h3>
-          <img src={results.Img} alt={results.Name} />
+          <img src={process.env.PUBLIC_URL + results.Img} alt={results.Name} />
           <h4>" {results.say} "</h4>
         </div>
         <div className="overflow">
