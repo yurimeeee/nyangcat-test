@@ -12,7 +12,6 @@ function App() {
     // 부모 컴포넌트에서 결과 값을 받아 처리
     setFinalResult(result);
   };
-  console.log("appresult", finalResult);
 
   return (
     <div className="App">

@@ -4,6 +4,7 @@ import catImg from "../asset/cat.png";
 import kakaoIcon from "../asset/kakao.png";
 import "animate.css"; // animate.css를 import
 import KakaoShareButton from "../components/shareButton";
+import BubbleCat from "../components/BubbleCat";
 
 const Home = () => {
   return (
@@ -16,17 +17,20 @@ const Home = () => {
           어떤 고양이?!
         </h1>
       </div>
-      <div className="btn-wrap animate__animated animate__fadeInUp animate__delay-0.5s animate__slow">
-        <img src={catImg} alt="고양이" className="home-img" />
-        <Link to="/questions" className="btn start-btn">
-          테스트 시작하기
-        </Link>
-        <Link to="/" className="btn share-btn">
-          <img src={kakaoIcon} alt="카카오톡" />
-          카카오톡 공유하기
-          {KakaoShareButton}
-        </Link>
-        {/* {KakaoShareButton} */}
+      <div className="main">
+        <BubbleCat />
+        <div className="btn-wrap animate__animated animate__fadeInUp animate__delay-0.5s animate__slow">
+          <img src={catImg} alt="고양이" className="home-img" />
+          <Link to="/questions" className="btn start-btn">
+            테스트 시작하기
+          </Link>
+          <Link to="/" className="btn share-btn">
+            <img src={kakaoIcon} alt="카카오톡" />
+            카카오톡 공유하기
+            {KakaoShareButton}
+          </Link>
+          {/* {KakaoShareButton} */}
+        </div>
       </div>
     </div>
   );

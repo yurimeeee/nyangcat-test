@@ -104,9 +104,13 @@ const ResultPage = ({ finalResult }) => {
             </div>
           </div>
           <div className="btn-wrap">
-            <a href="" className="btn start-btn">
+            <Link to="/" className="btn start-btn">
+              {" "}
               테스트 다시하기
-            </a>
+            </Link>
+            {/* <a href="" className="btn start-btn">
+              테스트 다시하기
+            </a> */}
             <Link to="/" className="btn share-btn">
               <img src={kakaoIcon} alt="카카오톡" />
               친구에게 공유하기

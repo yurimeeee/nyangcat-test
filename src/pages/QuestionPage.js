@@ -28,14 +28,21 @@ const QuestionPage = ({ onResultChange }) => {
     setValueArr(newValueArr);
 
     // 초기값으로 빈 객체를 사용
-    const countValues = valueArr.reduce((counts, value) => {
-      // counts 객체에 해당 값이 존재하면 개수를 1 증가, 없으면 1로 초기화
+    // const countValues = valueArr.reduce((counts, value) => {
+    //   // counts 객체에 해당 값이 존재하면 개수를 1 증가, 없으면 1로 초기화
+    //   counts[value] = (counts[value] || 0) + 1;
+    //   return counts;
+    // }, {});
+
+    const countValues = newValueArr.reduce((counts, value) => {
       counts[value] = (counts[value] || 0) + 1;
       return counts;
     }, {});
 
-    // console.log("Count of values:", countValues);
+    console.log("newValueArr", newValueArr);
+    console.log("Count of values:", countValues);
     setCountArr(countValues);
+    console.log(countArr, "countArr");
     //다음 문제로 이동
     goNext();
   };
@@ -46,34 +53,15 @@ const QuestionPage = ({ onResultChange }) => {
   let str4 = "";
 
   const goResult = () => {
-    if (countArr["e"] > countArr["i"]) {
-      str1 = "E";
-    } else {
-      str1 = "I";
-    }
-    if (countArr["n"] > countArr["s"]) {
-      str2 = "N";
-    } else {
-      str2 = "S";
-    }
-    if (countArr["f"] > countArr["t"]) {
-      str3 = "F";
-    } else {
-      str3 = "T";
-    }
-    if (countArr["p"] > countArr["j"]) {
-      str4 = "P";
-    } else {
-      str4 = "J";
-    }
+    str1 = (countArr["e"] || 0) > (countArr["i"] || 0) ? "E" : "I";
+    str2 = (countArr["n"] || 0) > (countArr["s"] || 0) ? "N" : "S";
+    str3 = (countArr["f"] || 0) > (countArr["t"] || 0) ? "F" : "T";
+    str4 = (countArr["p"] || 0) > (countArr["j"] || 0) ? "P" : "J";
     let newStr = str1 + str2 + str3 + str4;
-    // setResult(newStr);
-    // console.log(newStr, "result newStr");
 
     // 결과 값을 부모 컴포넌트로 전달
     onResultChange(newStr);
     setHasResult(true);
-    // navigate("/result");
   };
 
   return (
@@ -85,7 +73,6 @@ const QuestionPage = ({ onResultChange }) => {
               <div className="progress">
                 <div
                   className="progress-bar"
-                  // ref={pBar}
                   style={{ width: `${(100 / qAmt) * (qidx + 1)}%` }}
                 ></div>
               </div>
@@ -102,7 +89,6 @@ const QuestionPage = ({ onResultChange }) => {
                   className="answer btn"
                   value={answerText.value}
                   onClick={() => addAnswer(answerText.value)}
-                  // onClick={(event) => addAnswer(event.target.value)}
                 >
                   {answerText.answer}
                 </button>
@@ -110,7 +96,105 @@ const QuestionPage = ({ onResultChange }) => {
             </div>
           </>
         ) : (
-          <Link to="/result">결과보러가기</Link>
+          <div className="result-loading">
+            <div>
+              <svg class="">
+                <defs>
+                  <filter id="poo">
+                    <feGaussianBlur
+                      in="SourceGraphic"
+                      result="blur"
+                      stdDeviation="4"
+                    />
+                    <feColorMatrix
+                      in="blur"
+                      mode="matrix"
+                      values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -8"
+                      result="goo"
+                    />
+                    <feBlend in2="goo" in="SourceGraphic" result="mix" />
+                  </filter>
+                </defs>
+                <mask id="mask">
+                  <g
+                    id="g"
+                    class="balls"
+                    style={{ filter: "url('#poo')", fill: "#F8AB52" }}
+                  >
+                    <circle cx="25" cy="25" r="6" id="b1"></circle>
+                    <circle cx="25" cy="25" r="6" id="b2"></circle>
+                  </g>
+                </mask>
+                <rect
+                  x="0"
+                  y="0"
+                  mask="url(#mask)"
+                  fill="#F8AB52"
+                  width="50"
+                  height="50"
+                />
+                <animateTransform
+                  href="#g"
+                  attributeName="transform"
+                  attributeType="XML"
+                  type="rotate"
+                  from="0 25 25"
+                  to="360 25 25"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  id="an1"
+                  href="#b1"
+                  attributeName="cx"
+                  calcMode="spline"
+                  keyTimes="0; 0.5; 1"
+                  values="25; 18; 25"
+                  keySplines=".6 .01 .36 .99; .6 .01 .36 .99;"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  id="an2"
+                  href="#b2"
+                  attributeName="cx"
+                  values="25; 32; 25"
+                  calcMode="spline"
+                  keySplines=".6 .01 .36 .99; .6 .01 .36 .99;"
+                  keyTimes="0; 0.5; 1"
+                  to="60"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  href="#b1"
+                  attributeName="r"
+                  values="6.4; 5; 6.4"
+                  calcMode="spline"
+                  keySplines=".6 .01 .36 .99; .6 .01 .36 .99;"
+                  keyTimes="0; 0.5; 1"
+                  to="60"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  href="#b2"
+                  attributeName="r"
+                  values="6.4; 5; 6.4"
+                  calcMode="spline"
+                  keySplines=".6 .01 .36 .99; .6 .01 .36 .99;"
+                  keyTimes="0; 0.5; 1"
+                  to="60"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </svg>
+
+              <Link to="/result" className="start-btn btn">
+                결과 보기
+              </Link>
+            </div>
+          </div>
         )}
       </div>
     </div>

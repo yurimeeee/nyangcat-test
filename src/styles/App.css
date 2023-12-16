@@ -40,13 +40,12 @@ body {
 
 .home {
   height: 100%;
-  padding: 126px 0 156px;
+  /* padding: 126px 0 156px; */
+  padding: 100px 0 76px;
   display: flex;
-  /* justify-content: center; */
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  /* align-items: center; */
 }
 .title-wrap {
   display: flex;
@@ -70,11 +69,21 @@ body {
 
 .home-img {
   position: absolute;
-  width: 228px;
-  height: 193px;
-  top: -170px;
+  /* width: 228px;
+  height: 193px; */
+  width: 167px;
+  height: 140px;
+  top: -124px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 130px;
+  align-items: center;
 }
 
 .btn-wrap,
@@ -124,11 +133,8 @@ body {
   height: 100%;
   padding: 60px 0 156px;
   text-align: center;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
 }
+
 .q-number {
   color: #f8ab52;
   font-size: 48px;
@@ -147,7 +153,7 @@ body {
 }
 
 .btn.answer {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   border: none;
   background: #dee4f2;
@@ -191,10 +197,40 @@ body {
   display: inline-block;
   line-height: 24px;
   vertical-align: top;
+  padding-left: 20px;
 }
 
 .answer-btns {
   margin: 0 auto;
+}
+
+.result-loading {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 250px 0;
+  width: 100%;
+}
+
+.result-loading > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  /* height: 100%; */
+}
+.result-loading svg {
+  width: 50px;
+  height: 50px;
+}
+
+.result-loading a {
+  width: 300px;
+  /* padding: 20px 40px; */
+  background: #ffda72;
+  border-radius: 50px;
 }
 
 /* result */
@@ -344,4 +380,22 @@ body {
 
 .result-wrap .btn-wrap {
   width: 100%;
+}
+
+.random-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 265px;
+  height: 200px;
+  background: url(/public/asset/bubble.png) no-repeat center/cover;
+  padding-bottom: 30px;
+}
+
+.random-container img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  /* transition: top 1s ease, left 1s ease, transform 1s ease; */
 }
