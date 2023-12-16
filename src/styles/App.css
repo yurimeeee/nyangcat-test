@@ -360,6 +360,10 @@ body {
   padding: 20px 0;
 }
 
+.chemistry > div > p {
+  font-weight: 900;
+}
+
 .mbti-wrap {
   display: flex;
   justify-content: space-between;
@@ -459,6 +463,28 @@ body {
   .question {
     height: 230px;
     font-size: 28px;
+  }
+
+  .chemistry img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .chemistry {
+    display: flex;
+    gap: 15px;
+  }
+
+  .mbti-wrap p {
+    color: #6d6d6d;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  .mbti {
+    padding: 30px 0;
+    gap: 28px;
   }
 
   /* 추가적인 모바일 전용 스타일 */
