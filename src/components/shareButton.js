@@ -4,9 +4,7 @@ import kakaoSmIcon from "../asset/kakao-sm.png";
 import { useLocation } from "react-router-dom";
 const { Kakao } = window;
 
-// 배포한 자신의 사이트
 const realUrl = "https://yurimeeee.github.io/nyangcat-test/";
-// 로컬 주소 (localhost 3000 같은거)
 const resultUrl = window.location.href;
 
 const KakaoShareButton = () => {
@@ -81,14 +79,9 @@ const KakaoShareButton = () => {
     // </a>
     <div onClick={shareMessage}>
       {location.pathname === "/" ? (
-        <a
-          href="javascript:void(0)"
-          onClick={shareMessage}
-          className="btn share-btn"
-        >
-          <img src={kakaoIcon} alt="카카오톡" />
-          카카오톡 공유하기
-        </a>
+        <div className="btn share-btn">
+          <img src={kakaoIcon} alt="카카오톡" /> 카카오톡 공유하기
+        </div>
       ) : location.pathname === "/result" ? (
         <button className="kakao circle-btn">
           <img src={kakaoSmIcon} alt="카카오톡 공유" />

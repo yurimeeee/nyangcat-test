@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { QnaList } from "../data/QnaList";
 import "animate.css";
 
@@ -10,7 +10,6 @@ const QuestionPage = ({ onResultChange }) => {
   const [countArr, setCountArr] = useState([]);
   const [result, setResult] = useState("");
   const [hasResult, setHasResult] = useState(false);
-  const navigate = useNavigate();
   const [key, setKey] = useState(0); // key 상태 추가
 
   const qAmt = QnaList.length;
@@ -18,7 +17,7 @@ const QuestionPage = ({ onResultChange }) => {
   //테스트 과정
   const goNext = () => {
     if (qidx !== qAmt - 1) {
-      setQidx(next);
+      setQidx(next + 1);
       setNext(next + 1);
     } else {
       goResult();
@@ -29,22 +28,13 @@ const QuestionPage = ({ onResultChange }) => {
     const newValueArr = [...valueArr, value];
     setValueArr(newValueArr);
 
-    // 초기값으로 빈 객체를 사용
-    // const countValues = valueArr.reduce((counts, value) => {
-    //   // counts 객체에 해당 값이 존재하면 개수를 1 증가, 없으면 1로 초기화
-    //   counts[value] = (counts[value] || 0) + 1;
-    //   return counts;
-    // }, {});
-
     const countValues = newValueArr.reduce((counts, value) => {
       counts[value] = (counts[value] || 0) + 1;
       return counts;
     }, {});
-
-    console.log("newValueArr", newValueArr);
-    console.log("Count of values:", countValues);
     setCountArr(countValues);
-    console.log(countArr, "countArr");
+    console.log(newValueArr, "newValueArr");
+    console.log(countArr, "counts");
     //다음 문제로 이동
     goNext();
     setKey((prevKey) => prevKey + 1); // key 상태를 변경하여 다시 렌더링
@@ -65,6 +55,7 @@ const QuestionPage = ({ onResultChange }) => {
     // 결과 값을 부모 컴포넌트로 전달
     onResultChange(newStr);
     setHasResult(true);
+    console.log(newStr, "newStr");
   };
 
   return (
@@ -103,7 +94,7 @@ const QuestionPage = ({ onResultChange }) => {
         ) : (
           <div className="result-loading">
             <div>
-              <svg class="">
+              <svg>
                 <defs>
                   <filter id="poo">
                     <feGaussianBlur
@@ -123,7 +114,7 @@ const QuestionPage = ({ onResultChange }) => {
                 <mask id="mask">
                   <g
                     id="g"
-                    class="balls"
+                    className="balls"
                     style={{ filter: "url('#poo')", fill: "#F8AB52" }}
                   >
                     <circle cx="25" cy="25" r="6" id="b1"></circle>
@@ -194,7 +185,6 @@ const QuestionPage = ({ onResultChange }) => {
                   repeatCount="indefinite"
                 />
               </svg>
-
               <Link to="/result" className="start-btn btn">
                 결과 보기
               </Link>

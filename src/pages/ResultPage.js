@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import linkIcon from "../asset/link.png";
 import { ResultList } from "../data/result_data";
-import { useNavigate } from "react-router-dom";
 import KakaoShareButton from "../components/ShareButton";
+import { IconShare } from "@tabler/icons-react";
 
 const ResultPage = ({ finalResult }) => {
-  const navigate = useNavigate();
-
   // const storageKey = "resultData"; // 로컬 스토리지에 저장될 키
 
   // // 로컬 스토리지에서 데이터 가져오기
@@ -35,7 +33,6 @@ const ResultPage = ({ finalResult }) => {
   const bestArr = results.Best.map((mbti) =>
     ResultList.find((result) => mbti in result)
   );
-  // console.log(bestArr, "bestArr");
 
   const bestMbti = bestArr.map((item) => {
     if (item) {
@@ -43,12 +40,10 @@ const ResultPage = ({ finalResult }) => {
     }
     return null;
   });
-  // console.log(bestMbti);
 
   const worstArr = results.Worst.map((mbti) =>
     ResultList.find((result) => mbti in result)
   );
-  console.log(worstArr, "worstArr");
 
   const worstMbti = worstArr.map((item) => {
     if (item) {
@@ -57,31 +52,13 @@ const ResultPage = ({ finalResult }) => {
     return null;
   });
 
-  // useEffect(() => {
-  //   // useEffect 안에서 페이지 리로드 시 리다이렉션을 수행
-  //   const handlePageReload = () => {
-  //     console.log("리로드 시 리다이렉션 작업 수행 중");
-  //     // navigate("/"); // "/" 경로로 리다이렉트
-
-  //     // return redirect("/");
-  //     window.location.reload("/");
-  //   };
-
-  //   window.addEventListener("beforeunload", handlePageReload);
-
-  //   return () => {
-  //     // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
-  //     window.removeEventListener("beforeunload", handlePageReload);
-  //   };
-  // }, [navigate]);
-
+  //링크 공유
   const urlRef = useRef(null);
   const toastRef = useRef(null);
 
   const copyToClipboard = () => {
-    // input 요소가 선택된 상태가 되도록 포커스
+    // input 포커스
     urlRef.current.select();
-    // 복사 명령 실행
     document.execCommand("copy");
     toastRef.current.classList.add("active");
     setTimeout(() => {
@@ -148,7 +125,10 @@ const ResultPage = ({ finalResult }) => {
             </Link> */}
           </div>
           <div className="share-wrap">
-            <h4>테스트 공유하기</h4>
+            <h4>
+              <IconShare size={20} />
+              테스트 공유하기
+            </h4>
             <div className="share-btns">
               <div>
                 <KakaoShareButton />

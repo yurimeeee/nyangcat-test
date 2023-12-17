@@ -33,14 +33,11 @@ function App() {
   }, []);
 
   const handleResultChange = (result) => {
-    // 부모 컴포넌트에서 결과 값을 받아 처리
     setFinalResult(result);
   };
 
   return (
     <div className="App">
-      {/* <Router basename={process.env.PUBLIC_URL}> */}
-      {/* <Router> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -52,7 +49,6 @@ function App() {
           element={<ResultPage finalResult={finalResult} />}
         />
       </Routes>
-      {/* </Router> */}
     </div>
   );
 }
