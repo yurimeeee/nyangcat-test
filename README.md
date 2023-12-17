@@ -14,12 +14,22 @@
 
 </br>
 
-## 🗓️개발기간
+## 🗓️개발 기간
 * 2023.12.15 - 2023.12.17
 </br>
 
 
-## 🎨디자인 시안 & 구현페이지
+## 🛠️사용 스킬
+  <span style="width: 400px; display:inline-block">
+    <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white"/>
+    <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"/>
+    <img src="https://img.shields.io/badge/javascript-F7DF1E?style=flat-square&logo=javascript&logoColor=white"/>
+  </span>
+</br>
+</br>
+
+
+## 🎨디자인 시안 & 구현페이지
 </br>
 <img src="https://github.com/yurimeeee/nyangcat-test/assets/137126594/d1b0dd20-3fe2-4e5c-8a38-9c6738a7655e"  width="450" margin="0 auto"/></br>
 * 메인 ~ 테스트 진행중</br></br>
