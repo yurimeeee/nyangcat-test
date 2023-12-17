@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, redirect } from "react-router-dom";
-import kakaoIcon from "../asset/kakao.png";
+import linkIcon from "../asset/link.png";
 import { ResultList } from "../data/result_data";
 import { useNavigate } from "react-router-dom";
+import KakaoShareButton from "../components/ShareButton";
 
 const ResultPage = ({ finalResult }) => {
   const navigate = useNavigate();
@@ -74,6 +75,20 @@ const ResultPage = ({ finalResult }) => {
   //   };
   // }, [navigate]);
 
+  const urlRef = useRef(null);
+  const toastRef = useRef(null);
+
+  const copyToClipboard = () => {
+    // input 요소가 선택된 상태가 되도록 포커스
+    urlRef.current.select();
+    // 복사 명령 실행
+    document.execCommand("copy");
+    toastRef.current.classList.add("active");
+    setTimeout(() => {
+      toastRef.current.classList.remove("active");
+    }, 2000);
+  };
+
   return (
     <div className="result">
       <div className="result-wrap animate__animated animate__fadeIn animate__slow-1s">
@@ -127,10 +142,37 @@ const ResultPage = ({ finalResult }) => {
               {" "}
               테스트 다시하기
             </Link>
-            <Link to="/" className="btn share-btn">
+            {/* <Link to="/" className="btn share-btn">
               <img src={kakaoIcon} alt="카카오톡" />
               친구에게 공유하기
-            </Link>
+            </Link> */}
+          </div>
+          <div className="share-wrap">
+            <h4>테스트 공유하기</h4>
+            <div className="share-btns">
+              <div>
+                <KakaoShareButton />
+              </div>
+              <div className="clipboard">
+                <p className="toast" ref={toastRef}>
+                  링크가 클립보드에 저장되었습니다.
+                </p>
+                <input
+                  ref={urlRef}
+                  type="text"
+                  value={window.location.href}
+                  readOnly
+                  // className="hidden"
+                  style={{ position: "absolute", left: "-9999px" }}
+                />
+                <button
+                  onClick={copyToClipboard}
+                  className="linkcopy circle-btn"
+                >
+                  <img src={linkIcon} alt="링크복사" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

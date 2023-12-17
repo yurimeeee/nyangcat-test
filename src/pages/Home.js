@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import catImg from "../asset/cat.png";
 import kakaoIcon from "../asset/kakao.png";
 import "animate.css";
-import KakaoShareButton from "../components/shareButton";
+import KakaoShareButton from "../components/ShareButton";
 import BubbleCat from "../components/BubbleCat";
 
 const Home = () => {
@@ -24,11 +24,12 @@ const Home = () => {
           <Link to="/questions" className="btn start-btn">
             테스트 시작하기
           </Link>
-          <Link to="/" className="btn share-btn">
+          <KakaoShareButton />
+          {/* <Link to="/" className="btn share-btn">
             <img src={kakaoIcon} alt="카카오톡" />
             카카오톡 공유하기
             {KakaoShareButton}
-          </Link>
+          </Link> */}
           {/* {KakaoShareButton} */}
         </div>
       </div>
