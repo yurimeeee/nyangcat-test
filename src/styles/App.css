@@ -427,10 +427,14 @@ body {
     border-radius: 0;
     box-shadow: none;
   }
+  .home {
+  }
   .home,
   .test {
-    height: calc(100vh - 50px);
+    height: 100vh;
     width: 100vw;
+    overflow: hidden;
+    padding: 50px 0 76px;
   }
 
   .title-wrap {
@@ -460,9 +464,24 @@ body {
     width: 250px;
     height: 190px;
   }
+
+  .test-testing {
+    padding: 0;
+  }
+
   .question {
     height: 230px;
     font-size: 24px;
+  }
+
+  .progress {
+    margin: 0 auto 60px;
+    width: 70%;
+    height: 24px;
+    border-radius: 30px;
+    background: #fdf5d2;
+    position: relative;
+    display: inline-block;
   }
 
   .chemistry img {
