@@ -3,7 +3,6 @@ import kakaoIcon from "../asset/kakao.png";
 import kakaoSmIcon from "../asset/kakao-sm.png";
 import { useLocation } from "react-router-dom";
 const { Kakao } = window;
-// const kakao = window.Kakao;
 
 const realUrl = "https://yurimeeee.github.io/nyangcat-test/";
 const resultUrl = window.location.href;
@@ -30,7 +29,7 @@ const KakaoShareButton = () => {
       } else {
         console.error("Failed to initialize Kakao SDK");
       }
-      // console.log("Kakao", Kakao);
+      console.log("Kakao", Kakao);
     };
 
     document.head.appendChild(script);
@@ -40,17 +39,9 @@ const KakaoShareButton = () => {
       document.head.removeChild(script);
     };
   }, []);
-  // console.log("Kakao", Kakao);
+  console.log("Kakao", Kakao);
   const shareMessage = () => {
-    if (window.Kakao) {
-      const Kakao = window.Kakao;
-
-      if (!Kakao.isInitialized()) {
-        Kakao.init("e79b288ebffab6c35ea1c3d7624e2f3a");
-      }
-
-      // if (kakaoInitialized && window.Kakao) {
-
+    if (kakaoInitialized && window.Kakao) {
       // if (kakaoInitialized) {
       // if (window.Kakao && window.Kakao.isInitialized()) {
       Kakao.Share.sendDefault({

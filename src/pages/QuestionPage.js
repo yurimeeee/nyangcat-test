@@ -33,8 +33,8 @@ const QuestionPage = ({ onResultChange }) => {
       return counts;
     }, {});
     setCountArr(countValues);
-    console.log(newValueArr, "newValueArr");
-    console.log(countArr, "counts");
+    // console.log(newValueArr, "newValueArr");
+    // console.log(countArr, "counts");
     //다음 문제로 이동
     goNext();
     setKey((prevKey) => prevKey + 1); // key 상태를 변경하여 다시 렌더링
@@ -55,7 +55,7 @@ const QuestionPage = ({ onResultChange }) => {
     // 결과 값을 부모 컴포넌트로 전달
     onResultChange(newStr);
     setHasResult(true);
-    console.log(newStr, "newStr");
+    // console.log(newStr, "newStr");
   };
 
   return (
