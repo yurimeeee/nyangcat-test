@@ -51,7 +51,7 @@ const KakaoShareButton = () => {
           title: "나는 어떤 고양이?!",
           description: "성격으로 알아보는 냥캣테스트",
           imageUrl:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhealth.chosun.com%2Fsite%2Fdata%2Fhtml_dir%2F2023%2F07%2F17%2F2023071701758.html&psig=AOvVaw04EQ9lCMHqJXrSUm8DtiG1&ust=1702877692585000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJCpxPLflYMDFQAAAAAdAAAAABAE",
+            "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbdqA0l%2FbtsCSaxMxgH%2FeDp94FkggT2mkN1hEN3Lh1%2Fimg.png",
           // "https://yurimeeee.github.io/nyangcat-test/asset/kakaoshare.png",
           link: {
             mobileWebUrl: realUrl,
