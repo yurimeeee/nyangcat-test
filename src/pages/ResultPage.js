@@ -27,13 +27,17 @@ const ResultPage = ({ finalResult }) => {
   // console.log(finalResult, "finalResult");
   // console.log(ResultList, "ResultList");
 
+  // const results = ResultList.filter((result) => finalResult in result)[0][
+  //   finalResult
+  // ];
   const results = ResultList.filter((result) => finalResult in result)[0][
     finalResult
   ];
-
-  if (results) {
-    setToLowerResult(results.Mbti.toLowerCase());
-  }
+  useEffect(() => {
+    if (results) {
+      setToLowerResult(results.Mbti.toLowerCase());
+    }
+  }, [finalResult]);
 
   const bestArr = results.Best.map((mbti) =>
     ResultList.find((result) => mbti in result)
