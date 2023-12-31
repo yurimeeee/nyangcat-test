@@ -149,7 +149,7 @@ const ResultPage = ({ finalResult }) => {
                 <input
                   ref={urlRef}
                   type="text"
-                  value={window.location.href}
+                  value={`https://yurimeeee.github.io/nyangcat-test/result/${toLowerResult}.html`}
                   readOnly
                   // className="hidden"
                   style={{ position: "absolute", left: "-9999px" }}
