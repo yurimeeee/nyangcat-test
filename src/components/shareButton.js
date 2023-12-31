@@ -8,7 +8,7 @@ const { Kakao } = window;
 const realUrl = "https://yurimeeee.github.io/nyangcat-test/";
 const resultUrl = window.location.href;
 
-const KakaoShareButton = () => {
+const KakaoShareButton = ({ toLowerResult }) => {
   const location = useLocation();
   const [kakaoInitialized, setKakaoInitialized] = useState(false);
 
@@ -76,7 +76,7 @@ const KakaoShareButton = () => {
           {
             title: "친구의 결과보기",
             link: {
-              mobileWebUrl: resultUrl,
+              mobileWebUrl: `${resultUrl}/result/toLowerResult.html`,
             },
           },
         ],

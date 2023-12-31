@@ -6,6 +6,7 @@ import KakaoShareButton from "../components/ShareButton";
 import { IconShare } from "@tabler/icons-react";
 
 const ResultPage = ({ finalResult }) => {
+  const [toLowerResult, setToLowerResult] = useState("");
   // const storageKey = "resultData"; // 로컬 스토리지에 저장될 키
 
   // // 로컬 스토리지에서 데이터 가져오기
@@ -29,6 +30,10 @@ const ResultPage = ({ finalResult }) => {
   const results = ResultList.filter((result) => finalResult in result)[0][
     finalResult
   ];
+
+  if (results) {
+    setToLowerResult(results.Mbti.toLowerCase());
+  }
 
   const bestArr = results.Best.map((mbti) =>
     ResultList.find((result) => mbti in result)
@@ -131,7 +136,7 @@ const ResultPage = ({ finalResult }) => {
             </h4>
             <div className="share-btns">
               <div>
-                <KakaoShareButton />
+                <KakaoShareButton toLowerResult={toLowerResult} />
               </div>
               <div className="clipboard">
                 <p className="toast" ref={toastRef}>
