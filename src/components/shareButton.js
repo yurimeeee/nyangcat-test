@@ -76,7 +76,7 @@ const KakaoShareButton = ({ toLowerResult }) => {
           {
             title: "친구의 결과보기",
             link: {
-              mobileWebUrl: `${resultUrl}public/result/${toLowerResult}.html`,
+              mobileWebUrl: `${resultUrl}result/${toLowerResult}.html`,
             },
           },
         ],
